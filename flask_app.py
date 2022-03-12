@@ -67,6 +67,7 @@ def main():
 
 def handle_dialog(req, res):
     user_id = req['session']['user_id']
+    bunny = False
 
     if req['session']['new']:
         # Это новый пользователь.
@@ -104,13 +105,32 @@ def handle_dialog(req, res):
     ]:
         # Пользователь согласился, прощаемся.
         res['response']['text'] = 'Слона можно найти на Яндекс.Маркете!'
-        res['response']['end_session'] = True
+        bunny = True
         return
 
     # Если нет, то убеждаем его купить слона!
     res['response']['text'] = \
         f"Все говорят '{req['request']['original_utterance']}', а ты купи слона!"
     res['response']['buttons'] = get_suggests(user_id)
+
+    if bunny:
+        if req['request']['original_utterance'].lower() in [
+            'ладно',
+            'куплю',
+            'покупаю',
+            'хорошо',
+            'я покупаю',
+            'я куплю',
+        ]:
+            # Пользователь согласился, прощаемся.
+            res['response']['text'] = 'Кролика можно найти на Яндекс.Маркете!'
+            bunny = True
+            return
+
+        else:
+            res['response']['text'] = \
+                f"Все говорят '{req['request']['original_utterance']}', а ты купи кролика!"
+            res['response']['buttons'] = get_suggests(user_id)
 
 
 # Функция возвращает две подсказки для ответа.
