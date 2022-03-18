@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO, filename='app.log',
 
 @app.route('/')
 def default():
-    print('Сайт работает')
+    return 'Сайт работает'
 
 
 @app.route('/post', methods=['POST'])
