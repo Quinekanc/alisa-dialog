@@ -1,5 +1,4 @@
 import os
-
 from flask import Flask, request
 import logging
 import json
@@ -41,11 +40,6 @@ def handle_dialog(res, req):
             'first_name': None,  # здесь будет храниться имя
             'game_started': False  # здесь информация о том, что пользователь начал игру. По умолчанию False
         }
-        res['response']['buttons'] = [
-            {
-                "title": "Помощь"
-            }
-        ]
         return
 
     if sessionStorage[user_id]['first_name'] is None:
@@ -69,7 +63,8 @@ def handle_dialog(res, req):
                     'hide': True
                 },
                 {
-                    "title": "Помощь"
+                    "title": "Помощь",
+                    'hide': True
                 }
             ]
     else:
@@ -104,6 +99,10 @@ def handle_dialog(res, req):
                     },
                     {
                         'title': 'Нет',
+                        'hide': True
+                    },
+                    {
+                        "title": "Помощь",
                         'hide': True
                     }
                 ]
