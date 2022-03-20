@@ -56,6 +56,9 @@ def handle_dialog(res, req):
             res['response']['card']['title'] = 'Этот город в стране - ' + get_country(cities[0])
             res['response']['card']['image_id'] = random.choice(cities_id[cities[0]])
 
+        else:
+            res['response']['text'] = 'Этот город в стране - ' + get_country(cities[0])
+
     elif len(cities) == 2:
         distance = get_distance(get_coordinates(
             cities[0]), get_coordinates(cities[1]))
