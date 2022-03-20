@@ -50,6 +50,7 @@ def handle_dialog(res, req):
         res['response']['text'] = 'Ты не написал название не одного города!'
     elif len(cities) == 1:
         if cities[0] in ['москва', 'нью-йорк', 'париж']:
+            res['response']['text'] = 'Этот город в стране - ' + get_country(cities[0])
             res['response']['card'] = {}
             res['response']['card']['type'] = 'BigImage'
             res['response']['card']['title'] = 'Этот город в стране - ' + get_country(cities[0])
