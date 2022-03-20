@@ -46,9 +46,7 @@ def handle_dialog(res, req):
             'Привет! Я могу показать город или сказать расстояние между городами!'
         return
     cities = get_cities(req)
-    if not cities:
-        res['response']['text'] = 'Ты не написал название не одного города!'
-    elif len(cities) == 1:
+    if len(cities) == 1:
         if cities[0] in ['москва', 'нью-йорк', 'париж']:
             res['response']['text'] = 'Этот город в стране - ' + get_country(cities[0])
             res['response']['card'] = {}
@@ -73,7 +71,10 @@ def handle_dialog(res, req):
                                       'Если же вы пишите название 2-х городов, ' \
                                       'то я показываю расстояние между ними' \
                                       'Не пишите больше двух городов, я путаюсь)'
-        res['response']['text'] = 'Слишком много городов!'
+        elif not cities:
+            res['response']['text'] = 'Ты не написал название не одного города!'
+        else:
+            res['response']['text'] = 'Слишком много городов!'
 
     res['response']['buttons'] = [
         {
