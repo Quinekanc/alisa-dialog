@@ -75,7 +75,7 @@ def handle_dialog(res, req):
                                       'Не пишите больше двух городов, я путаюсь)'
         res['response']['text'] = 'Слишком много городов!'
 
-    res['response']['text'] = [
+    res['response']['buttons'] = [
         {
             "title": "Помощь"
         }
