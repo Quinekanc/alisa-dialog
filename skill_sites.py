@@ -10,12 +10,12 @@ logging.basicConfig(level=logging.INFO, filename='app.log',
                     format='%(asctime)s %(levelname)s %(name)s %(message)s')
 
 cities_id = {
-    'москва': ['1540737/daa6e420d33102bf6947',
-               '213044/7df73ae4cc715175059e'],
-    'нью-йорк': ['1652229/728d5c86707054d4745f',
-                 '1030494/aca7ed7acefde2606bdc'],
-    'париж': ["1652229/f77136c2364eb90a3ea8",
-              '3450494/aca7ed7acefde22341bdc']
+    'москва': ['997614/56ad30efbc03beed9291',
+               '1533899/f079b042fa8e49586e3d'],
+    'нью-йорк': ['213044/d09dfd821c8924149fee',
+                 '1533899/33d7d09de5e0ade4b1a4'],
+    'париж': ['1030494/25b8adb1ceca2ea236b3',
+              '1521359/5c5d4ee1417a38f22759']
 }
 
 
