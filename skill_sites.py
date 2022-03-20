@@ -67,6 +67,14 @@ def handle_dialog(res, req):
     else:
         res['response']['text'] = 'Слишком много городов!'
 
+    res['response']['buttons'] = [
+        {
+            "title": "Надпись на кнопке",
+            "payload": {},
+            "url": "https://example.com/"
+        }
+    ]
+
 
 def get_cities(req):
     cities = []
