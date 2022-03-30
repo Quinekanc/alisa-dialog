@@ -90,6 +90,10 @@ def handle_dialog(res, req):
             elif 'нет' in req['request']['nlu']['tokens']:
                 res['response']['text'] = 'Ну и ладно!'
                 res['end_session'] = True
+            elif 'помощь' in req['request']['nlu']['tokens']:
+                res['response']['text'] = """
+                    Все просто, я вам присылаю фотографию города, а вы пытайтесь его угадать. 
+                    Если вы его не угадали, то я присылаю еще одну фотографию города."""
             else:
                 res['response']['text'] = 'Не поняла ответа! Так да или нет?'
                 res['response']['buttons'] = [
