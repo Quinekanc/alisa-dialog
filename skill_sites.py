@@ -151,6 +151,11 @@ def play_game(res, req):
                 {
                     "title": "Помощь",
                     'hide': True
+                },
+                {
+                    "title": "Покажи город на карте",
+                    "url": f"https://yandex.ru/maps/?mode=search&text={city}",
+                    'hide': True
                 }
             ]
             sessionStorage[user_id]['guessed_cities'].append(city)
